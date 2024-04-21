@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  
+    <!-- CSS property to create interactive  
+        calculator interface -->  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+<body>
+    <style>
+      html {  
+  height: 100vh;  
+  display: flex;
+  align-items: center;  
+  justify-content: center;  
+  
+  background-image:url(" https://res.cloudinary.com/dwuewctys/image/upload/v1713540741/mathBG_eqdadm.jpg");
+  font-family: 'Cookie', cursive;  
+}  
+.title {  
+margin-bottom: 10px;  
+padding: 5px 0;  
+font-size: 90px;  
+font-weight: bold;  
+text-align: center;  
+color: rgb(250, 247, 247);  
+font-family: 'Cookie', cursive;  
+}  
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}
+
+
+.calc-container {
+  width: 400px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 70px 70px 70px 70px 70px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 2px 12px 0px rgb(122, 122, 122);
+    background-color: rgb(7, 7, 7);
+  }
+
+  input {
+    background-color: white;
+    border: 1px solid rgb(206, 205, 205);
+    font-size: inherit;
+    border-radius: 3%;
+  }
+
+  input:hover {
+    background-color: rgb(236, 236, 236);
+  }
+
+  .operators {
+    background-color: rgb(220, 220, 220);
+    font-size: 25px;
+  }
+
+  .screen {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    grid-column: 1/5;
+    height: 100px;
+    font-size: 35px;
+    padding: 0px 20px;
+
+    color: rgb(1, 1, 1);
+    background-color: rgb(249, 248, 248);
+  }
+
+  .equal {
+    grid-column: 4/5;
+    grid-row: 3/7;
+    font-weight: 700;
+    font-size: 27px;
+    color:rgb(226, 110, 74);
+  }
+
+  .equal:hover {
+    background-color: rgb(231, 229, 229);
+    color: black;
+  }
+
+  .clear {
+    font-weight: 700;
+    color:rgb(226, 110, 74);
+  }
+
+  .clear:hover {
+    background-color: rgb(231, 229, 229);
+    color: black;
+  }
+    </style>
+    <div class = "title"  align="center">  
+      <u>Calculator</u>
+    </div>  
+
+    <div class="calc-container">
+      <div class="screen"><p></p></div>
+      <input type="button" value="+" class="keys operators" />
+      <input type="button" value="-" class="keys operators" />
+      <input type="button" value="x" class="keys operators" />
+      <input type="button" value="/" class="keys operators" />
+      <input type="button" value="7" class="keys" />
+      <input type="button" value="8" class="keys" />
+      <input type="button" value="9" class="keys" />
+      <input type="button" value="=" class="keys equal" />
+      <input type="button" value="4" class="keys" />
+      <input type="button" value="5" class="keys" />
+      <input type="button" value="6" class="keys" />
+      <input type="button" value="1" class="keys" />
+      <input type="button" value="2" class="keys" />
+      <input type="button" value="3" class="keys" />
+      <input type="button" value="." class="keys" />
+      <input type="button" value="0" class="keys" />
+      <input type="button" value="C" class="keys clear" />
+    </div>
+    <script>
+        let expString = "";
+let outputStr = "";
+let validInput = true;
+
+const keys = document.querySelectorAll(`.keys`);
+let output = document.querySelector(".screen").children[0];
+
+Array.from(keys).forEach((key) => {
+  key.addEventListener("click", (event) => {
+    
+    if (validInput === false) {
+      expString = "";
+      outputStr = "";
+      validInput = true;
+    }
+
+    if (event.target.value == "C") {
+      expString = "";
+      outputStr = "";
+    } 
+    
+    else if (event.target.value == "x") {
+      expString = expString + "*";
+      outputStr = outputStr + "x";
+    }
+    
+    else if (event.target.value == "=") {
+      try {
+        const validInputStr = /^[0-9+\-*/. ]*$/;
+        if (!validInputStr.test(expString)) {
+          throw new Error("invalid input");
+        }
+        expString = eval(expString);
+
+        if (expString === undefined) {
+          throw new Error("invalid input");
+        }
+      } catch (err) {
+        expString = "invalid input";
+        validInput = false;
+      }
+      outputStr = expString;
+    }
+
+     else {
+      expString = expString + event.target.value;
+      outputStr = outputStr + event.target.value;
+    }
+    
+    output.innerHTML = outputStr;
+  });
+});
+    </script>
+</body>
+</html>
