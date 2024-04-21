@@ -1,0 +1,226 @@
+:root {
+    --primary-color: #6bcef6;
+    --text-color: #232c2b;
+    --background-light: #ffffff;
+    --header-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 110%;
+}
+
+body {
+    background: linear-gradient(rgba(255, 254, 253, 0.7), rgba(255, 254, 253, 0.9)), 
+                url("https://th.bing.com/th/id/OIP.lKIvOunBwur_RXF0p23iyAHaE8?rs=1&pid=ImgDetMain") center center fixed;
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'serif';
+    color: #2c2f31;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.header-background {
+    background: linear-gradient(rgba(255, 254, 253, 0.7), rgba(255, 254, 253, 0.9)), 
+                url("https://th.bing.com/th/id/OIP.lKIvOunBwur_RXF0p23iyAHaE8?rs=1&pid=ImgDetMain") center center fixed;
+    background-size: cover;
+    text-align: center;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(247, 128, 128, 0.5);
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'serif';
+    font-size: 1.2rem;
+}
+
+.header-content img {
+    max-width: 250px;
+    border-radius: 50%;
+}
+
+.header-content h1, .header-content p {
+    margin: 0.5rem 0;
+    font-family: 'serif';
+
+}
+
+#about {
+     
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 40px;
+    border-radius: 0.5%;
+    text-align: center;
+}
+
+.profile-photo {
+    max-width: 40%;
+    height: auto; 
+    border-radius: 50%; 
+}
+
+.center skills {
+    width: 100px;
+    max-width: 600px;
+    padding: 0 20px;
+}
+.center S-1 {
+    font-family: "Anta", sans-serif;
+    letter-spacing: 1pmx;
+}
+.center skill-1 {
+    font-size: 10px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+.center skills-part {
+    width:500%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+.center skill-bar {
+    height: 14px;    
+    border-radius: 3px;
+
+}
+.percent {
+    height: 12px;
+    background: #88badd;
+    border-radius: 3px;
+    position: relative;
+    animation: fillBars 2.5s 1;
+}
+.percent::before {
+    content:attr(per);
+    position: absolute;
+    padding: 4px 6px;
+    background: #3e92cc;
+    border-radius: 4px;
+    font-size: 12px;
+    top: -35px;
+    right: 0;
+    transform: translateX(50%);
+}
+.percent::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgb(238, 211, 215);
+    top: -20px;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: 2px;
+}
+@keyframes fillBars {
+    from{
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.pad{
+    padding: 15px;
+}
+
+#certificates {
+
+    padding: 15px;
+    border-radius: 0.5%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#resume {
+     
+    padding: 15px;
+    border-radius: 0.5%;
+    text-align: center;
+}
+
+#contact {
+     
+    padding: 15px;
+    border-radius: 0.5%;
+    text-align: center;
+}
+
+#social {
+     
+    padding: 15px;
+    border-radius: 0.5%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.td-btn {
+    padding: 12px 36px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in-out;
+    background-color: #37c466; 
+
+}
+
+
+/* Additional Styles */
+h2 {
+    color: #333;
+    font-family: 'serif';
+    font-size: 2.3rem;
+}
+
+a {
+    color: #29a598;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #208479;
+}
+
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+  
+  .profile-photo {
+        width: 50%; 
+        margin: 0 auto; 
+    }
+}
